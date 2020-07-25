@@ -1,0 +1,189 @@
+.admin_appBar_class {
+  padding-left: 190px !important;
+  background: #EE1C25 !important;
+}
+
+.admin_drawer_class {
+  width: 160px !important;
+}
+
+.admin_menu_class {
+    height: 64px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.admin_menu_class div {
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding-left: 10px !important;
+}
+
+.admin_img_icon_size{
+  height: 30px;
+  width: 30px;
+}
+
+.admin_content_class {
+  padding: 24px;
+  padding-left: 187px;
+}
+
+.search_content_class {
+  padding: 24px;
+  padding-left: 208px;
+}
+
+.add_background {
+  background: #EE1C25 !important;
+  text-decoration: none !important;
+  color: #FFFFFF !important;
+}
+
+.admin_user_details_outer {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+
+.admin_user_details_outer .admin_user_avatar {
+  width: 134px !important;
+  height: 134px !important;
+}
+
+.admin_user_details_outer .avatar_outer {
+  margin: 40px auto;
+}
+
+.mobile_avatar_cls {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.alignCenter {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.img_avatar_cls {
+  height: 140px;
+  width: 140px;
+}
+
+.admin_searchInput_class {
+  background: url(./icons/search.png) top left no-repeat;
+  background-size: 20px;
+  height: 32px;
+  padding-left: 38px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  background-position-x: 7px;
+  background-position-y: center;
+  width: 87%;
+  z-index: 99;
+}
+
+.admin_displayInline {
+  display: inline-block;
+}
+
+.admin_marginLeft {
+  margin-left: 208px;
+}
+
+.admin_searchDivWidth {
+  width: 23%;
+}
+
+.admin_searchButton_class {
+  padding: 8px 30px;
+  background: #EE1C25;
+  border: 2px solid #EE1C25;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.admin_buttonColourClass button, .admin_updateButtonClass button, .admin_removeButtonClass button {
+  background: #EE1C25 !important;
+  color: #FFFFFF !important;
+}
+
+.admin_dialogbuttonClass {
+  background: #FFFFFF !important;
+  color: #EE1C25 !important;
+}
+
+.admin_buttonColourClass button:disabled, .admin_updateButtonClass button:disabled, .admin_removeButtonClass button:disabled {
+  background: #ccc !important;
+  color: #FFFFFF !important;
+}
+
+.admin_noteButton {
+  color: #FFFFFF !important;
+}
+
+.admin_noteMargin {
+  margin: 0px 12%;
+}
+
+.admin_noteFont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.admin_notefontSize {
+  font-size: 16px;
+}
+
+.admin_hightLight {
+  color: #008080 !important;
+}
+
+@media screen and (max-width: 992px) {
+  .search_content_class {
+    padding: 20px;
+    padding-left: 24px;
+  }
+
+  .admin_notefontSize {
+    font-size: 13px;
+  }
+
+  .admin_noteMargin {
+    margin: 0px 2%;
+    margin-left: 5%;
+  }
+
+  .admin_searchDivWidth {
+    width: 200px;
+  }
+
+  .mobile_appbar {
+    background: #EE1C25 !important;
+  }
+
+  .product_nameField, .product_priceField, .product_infoField, .admin_buttonColourClass {
+    padding-left: 20px !important;
+    background: #FFFFFF !important;
+  }
+
+  .admin_updateButtonClass, .admin_removeButtonClass {
+    min-width: 100% !important;
+  }
+
+  .admin_updateButtonClass button span, .admin_removeButtonClass button span {
+    font-size: 11px !important;
+    text-transform: capitalize !important;
+    padding: 0 8px !important;
+  }
+
+  .admin_removeButtonClass {
+    width: 130% !important;
+  }
+}
