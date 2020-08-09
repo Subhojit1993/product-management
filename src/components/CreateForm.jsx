@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { createProducts } from "../actions/productActions";
@@ -11,7 +11,6 @@ import FlatButton from 'material-ui/FlatButton';
 // declared and defined field types
 const Name = "name";
 const Price = "price";
-const Info = "info";
 // declared and defined number regex
 const numReg = new RegExp('^[0-9]*$');
 

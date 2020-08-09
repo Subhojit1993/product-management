@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -7,7 +7,6 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../App.css';
 import { connect } from "react-redux";
@@ -17,14 +16,6 @@ import { withRouter } from 'react-router-dom';
 // popup add with button
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-
-// declared and defined field types
-const Name = "name";
-const Price = "price";
-const Info = "info";
-
-// declared and defined number regex
-const numReg = new RegExp('^[0-9]*$');
 
 export const RemoveProducts = (props) => {
 	const { containerClass, products } = props;

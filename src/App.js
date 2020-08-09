@@ -9,7 +9,6 @@ import { ProductListTable } from './components/ProductListTable';
 import { UpdateFormWithRedux } from './components/UpdateForm';
 import { RemoveProductsWithRedux } from './components/RemoveProducts';
 import { MyNote } from './components/MyNote';
-import { useHistory } from "react-router-dom";
 import './App.css';
 
 // react router included
