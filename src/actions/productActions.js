@@ -8,7 +8,7 @@ export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
 export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS';
 export const REMOVE_PRODUCT_SUCCESS = 'REMOVE_PRODUCT_SUCCESS';
 // product url set
-const productUrl = `https://products-db.herokuapp.com/products`;
+const productUrl = `https://sd-db-1021.herokuapp.com/products`;
 
 export const fetchProductsBegin = () => ({
   type: FETCH_PRODUCTS_BEGIN
