@@ -50,7 +50,9 @@ export function fetchProducts() {
         dispatch(fetchProductsSuccess(json));
         return json;
       })
-      .catch(error => dispatch(fetchProductsFailure(error)));
+      .catch(error => {
+        dispatch(fetchProductsFailure(error))
+      });
   };
 }
 

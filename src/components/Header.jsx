@@ -21,7 +21,11 @@ export const Header = (props) => {
 	}
 	return(
 		<AppBar
-		   title={<span style={styles.title}>Products CRUD</span>}
+		   title={
+		   	<Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+		   		<span style={styles.title}>Products CRUD</span>
+		   	</Link>
+		   }
 		   iconElementRight={
 		   	<Link to="/note" style={{ textDecoration: "none", color: "#FFFFFF" }}>
 		   		<div>

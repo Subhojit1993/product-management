@@ -11,23 +11,38 @@ import '../App.css';
 
 
 export const ProductListTable = (props) => {
-	const { products, containerClass } = props;
-	let productsList = "";
-	if(products.length > 0) {
-		productsList = products.map((product, index) => {
-			return(
-				<TableRow id={product.id} key={index}>
-				    <TableRowColumn>{product.name}</TableRowColumn>
-				    <TableRowColumn>{product.info}</TableRowColumn>
-				    <TableRowColumn>{product.price}</TableRowColumn>
+	const { products, containerClass, loading, error } = props;
+	let productsList = (
+		<TableRow>
+			<TableRowColumn>Loading ..</TableRowColumn>
+		</TableRow>
+	);
+	if(!loading) {
+		if(products && products.length > 0) {
+			productsList = products.map((product, index) => {
+				return(
+					<TableRow id={product.id} key={index}>
+					    <TableRowColumn>{product.name}</TableRowColumn>
+					    <TableRowColumn>{product.info}</TableRowColumn>
+					    <TableRowColumn>{product.price}</TableRowColumn>
+					</TableRow>
+				);
+			});
+		}
+		else {
+			productsList = (
+				<TableRow>
+					<TableRowColumn>Product list is Empty!</TableRowColumn>
 				</TableRow>
 			);
-		});
+		}
 	}
-	else {
-		productsList = "Product list is Empty!";
-	}
-	
+	if(error && error !== null && error !== "")
+		productsList = (
+			<TableRow>
+				<TableRowColumn>Network Issue: Failed to fetch!</TableRowColumn>
+			</TableRow>
+		);
 	return(
 		<div className={containerClass}>
 			<Table>

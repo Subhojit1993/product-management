@@ -23,7 +23,8 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items
+        items,
+        error: null
       };
       
     case FETCH_PRODUCTS_BEGIN:
@@ -41,7 +42,8 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.products
+        items: action.payload.products,
+        error: null
       };
 
     case REMOVE_PRODUCT_SUCCESS:
@@ -53,7 +55,8 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         items: updatedItems,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case SEARCH_PRODUCT_SUCCESS:
@@ -62,7 +65,8 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.products
+        items: action.payload.products,
+        error: null
       }
 
     case FETCH_PRODUCTS_FAILURE:

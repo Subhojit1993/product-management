@@ -71,7 +71,7 @@ class App extends Component {
     let container = 'admin_content_class';
     if(window.innerWidth < 767)
       container = '';
-    const { products } = this.props;
+    const { products, loading, error } = this.props;
     let searchDiv = '';
     let hrefArr = window.location.href.split('/');
     if(this.state.selected !== 2 && hrefArr[3] !== NOTE)
@@ -114,7 +114,12 @@ class App extends Component {
           {searchDiv}
           <Switch>
             <Route exact path="/">
-              <ProductListTable containerClass={container} products={products} />
+              <ProductListTable 
+                containerClass={container} 
+                products={products} 
+                loading={loading} 
+                error={error} 
+              />
             </Route>
             <Route exact path="/note">
               <MyNote containerClass={container} />
@@ -123,10 +128,20 @@ class App extends Component {
               <CreateFormWithRedux containerClass={container} />
             </Route>
             <Route exact path="/update">
-              <UpdateFormWithRedux containerClass={container} products={products} />
+              <UpdateFormWithRedux 
+                containerClass={container} 
+                products={products} 
+                loading={loading} 
+                error={error}
+              />
             </Route>
             <Route exact path="/delete">
-              <RemoveProductsWithRedux containerClass={container} products={products} />
+              <RemoveProductsWithRedux 
+                containerClass={container} 
+                products={products} 
+                loading={loading} 
+                error={error}
+              />
             </Route>
           </Switch>
         </div>

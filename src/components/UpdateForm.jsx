@@ -24,7 +24,7 @@ const Info = "info";
 const numReg = new RegExp('^[0-9]*$');
 
 export const UpdateForm = (props) => {
-	const { containerClass } = props;
+	const { containerClass, loading, error } = props;
 	let products = props.products;
 	let obj = {
 		setId: null,
@@ -157,90 +157,104 @@ export const UpdateForm = (props) => {
 		}));
     	props.updateProducts(dataAction);
     }
-    let productsList = "";
-    if(products.length > 0) {
-    	productsList = products.map((product, index) => {
-			if(product.id === dataAction.setId) {
-				return(
-					<TableRow id={product.id} key={index}>
-					    <TableRowColumn>
-					    	<div>
-								<TextField
-									className="product_nameField"
-							    	floatingLabelText="Product Name"
-							    	errorText={dataAction.errorNameText}
-							    	onChange={handleNameChange}
-							    	onPaste={handleNameChange}
-							    	value={product.name}
-							    	multiLine={true}
-							    />
-							</div>
-					    </TableRowColumn>
-					    <TableRowColumn>
-					    	<div>
-								<TextField
-									className="product_infoField"
-							    	floatingLabelText="Product Info"
-							    	errorText={dataAction.errorProductInfo}
-							    	onChange={handleInfoChange}
-							    	onPaste={handleInfoChange}
-							    	value={product.info}
-							    	multiLine={true}
-							    />
-							</div>
-					    </TableRowColumn>
-					    <TableRowColumn>
-					    	<div>
-								<TextField
-									className="product_priceField"
-							    	floatingLabelText="Product Price"
-							    	errorText={dataAction.errorPrice}
-							    	onChange={handlePriceChange}
-							    	onPaste={handlePriceChange}
-							    	value={product.price}
-							    	multiLine={true}
-							    />
-							</div>
-					    </TableRowColumn>
-					    <TableRowColumn>
-					    	<div>
-								<RaisedButton 
-									label="Save" 
-									primary={true} 
-									onClick={handleSave}
-									disabled={dataAction.isDisabled}
-									className="admin_updateButtonClass"
-								/>
-							</div>
-					    </TableRowColumn>
-					</TableRow>
-				);
-			}
-			else {
-				return(
-					<TableRow id={product.id} key={index}>
-					    <TableRowColumn>{product.name}</TableRowColumn>
-					    <TableRowColumn>{product.info}</TableRowColumn>
-					    <TableRowColumn>{product.price}</TableRowColumn>
-					    <TableRowColumn>
-					    	<div>
-								<RaisedButton 
-									label="Edit" 
-									primary={true} 
-									onClick={(e) => updateClick(e, product)}
-									disabled={dataAction.isClicked}
-									className="admin_updateButtonClass"
-								/>
-							</div>
-					    </TableRowColumn>
-					</TableRow>
-				);
-			}
-		});
-    }
-    else {
-    	productsList = "Products List is Empty!"
-    }
+    let productsList = (
+		<TableRow>
+			<TableRowColumn>Loading ..</TableRowColumn>
+		</TableRow>
+	);
+	if(!loading) {
+	    if(products.length > 0) {
+	    	productsList = products.map((product, index) => {
+				if(product.id === dataAction.setId)
+					return(
+						<TableRow id={product.id} key={index}>
+						    <TableRowColumn>
+						    	<div>
+									<TextField
+										className="product_nameField"
+								    	floatingLabelText="Product Name"
+								    	errorText={dataAction.errorNameText}
+								    	onChange={handleNameChange}
+								    	onPaste={handleNameChange}
+								    	value={product.name}
+								    	multiLine={true}
+								    />
+								</div>
+						    </TableRowColumn>
+						    <TableRowColumn>
+						    	<div>
+									<TextField
+										className="product_infoField"
+								    	floatingLabelText="Product Info"
+								    	errorText={dataAction.errorProductInfo}
+								    	onChange={handleInfoChange}
+								    	onPaste={handleInfoChange}
+								    	value={product.info}
+								    	multiLine={true}
+								    />
+								</div>
+						    </TableRowColumn>
+						    <TableRowColumn>
+						    	<div>
+									<TextField
+										className="product_priceField"
+								    	floatingLabelText="Product Price"
+								    	errorText={dataAction.errorPrice}
+								    	onChange={handlePriceChange}
+								    	onPaste={handlePriceChange}
+								    	value={product.price}
+								    	multiLine={true}
+								    />
+								</div>
+						    </TableRowColumn>
+						    <TableRowColumn>
+						    	<div>
+									<RaisedButton 
+										label="Save" 
+										primary={true} 
+										onClick={handleSave}
+										disabled={dataAction.isDisabled}
+										className="admin_updateButtonClass"
+									/>
+								</div>
+						    </TableRowColumn>
+						</TableRow>
+					);
+				else
+					return(
+						<TableRow id={product.id} key={index}>
+						    <TableRowColumn>{product.name}</TableRowColumn>
+						    <TableRowColumn>{product.info}</TableRowColumn>
+						    <TableRowColumn>{product.price}</TableRowColumn>
+						    <TableRowColumn>
+						    	<div>
+									<RaisedButton 
+										label="Edit" 
+										primary={true} 
+										onClick={(e) => updateClick(e, product)}
+										disabled={dataAction.isClicked}
+										className="admin_updateButtonClass"
+									/>
+								</div>
+						    </TableRowColumn>
+						</TableRow>
+					);
+			});
+	    }
+	    else {
+	    	productsList = (
+				<TableRow>
+					<TableRowColumn>Product list is Empty!</TableRowColumn>
+				</TableRow>
+			);
+	    }
+	}
+	if(error && error !== null && error !== "")
+		productsList = (
+			<TableRow>
+				<TableRowColumn>Network Issue: Failed to fetch!</TableRowColumn>
+			</TableRow>
+		);
 	return(
 		<div className={containerClass}>
 			<Table>
