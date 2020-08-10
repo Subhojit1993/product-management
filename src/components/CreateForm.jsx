@@ -15,7 +15,7 @@ const Price = "price";
 const numReg = new RegExp('^[0-9]*$');
 
 export const CreateForm = (props) => {
-	const { containerClass } = props;
+	const { containerClass, loading, error } = props;
 	let obj = {
 		errorNameText: 'Enter product name!',
 		errorPrice: 'Enter price of the product!',
@@ -122,6 +122,11 @@ export const CreateForm = (props) => {
     let popOpen = false;
     if(dataAction && dataAction.popOpen)
     	popOpen = dataAction.popOpen;
+    let modalText = "Loading ..";
+    if(!loading)
+    	modalText = "Product added successfully!";
+    if(error && error !== null && error !== "")
+    	modalText = "Network Issue: Failed to create!";
 	return(
 		<div className={containerClass}>
 			<div>
@@ -175,7 +180,7 @@ export const CreateForm = (props) => {
 	          open={popOpen}
 	          onRequestClose={handleClose}
 	        >
-	          Product added successfully!
+	          {modalText}
 	        </Dialog>
 		</div>
 	);

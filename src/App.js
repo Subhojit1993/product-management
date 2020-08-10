@@ -125,7 +125,11 @@ class App extends Component {
               <MyNote containerClass={container} />
             </Route>
             <Route exact path="/create">
-              <CreateFormWithRedux containerClass={container} />
+              <CreateFormWithRedux 
+                containerClass={container}
+                loading={loading} 
+                error={error} 
+              />
             </Route>
             <Route exact path="/update">
               <UpdateFormWithRedux 
