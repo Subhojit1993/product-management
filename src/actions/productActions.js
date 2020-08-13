@@ -7,6 +7,7 @@ export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
 export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS';
 export const REMOVE_PRODUCT_SUCCESS = 'REMOVE_PRODUCT_SUCCESS';
+export const FINISH_PRODUCTS_LOADING = 'FINISH_PRODUCTS_LOADING';
 // product url set
 const productUrl = `https://sd-db-1021.herokuapp.com/products`;
 
@@ -37,6 +38,11 @@ export const removeProductsSuccess = productId => ({
 export const fetchProductsFailure = error => ({
   type: FETCH_PRODUCTS_FAILURE,
   payload: { error }
+});
+
+export const finishLoading = finished => ({
+  type: FINISH_PRODUCTS_LOADING,
+  payload: { finished }
 });
 
 // fetch products action
@@ -89,6 +95,7 @@ export function updateProducts(dataAction) {
     dispatch(fetchProductsBegin());
     return axios.put(`${productUrl}/${dataAction.setId}`, dataAction.product)
     .then(resp => {
+      dispatch(finishLoading(false))
     }).catch(error => {
         dispatch(fetchProductsFailure(error))
     });

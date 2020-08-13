@@ -4,7 +4,8 @@ import {
   FETCH_PRODUCTS_FAILURE,
   CREATE_PRODUCT_SUCCESS,
   SEARCH_PRODUCT_SUCCESS,
-  REMOVE_PRODUCT_SUCCESS
+  REMOVE_PRODUCT_SUCCESS,
+  FINISH_PRODUCTS_LOADING
 } from '../actions/productActions';
 
 const initialState = {
@@ -34,6 +35,13 @@ export default function productReducer(state = initialState, action) {
         ...state,
         loading: true,
         error: null
+      };
+
+    case FINISH_PRODUCTS_LOADING:
+      // finish loading
+      return {
+        ...state,
+        loading: false
       };
 
     case FETCH_PRODUCTS_SUCCESS:
