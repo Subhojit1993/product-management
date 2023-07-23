@@ -2,7 +2,7 @@
 
 Clone the below repository in your system first with the below command:
 
-git clone https://github.com/Subhojit1993/subhojits-airtel-labs-assignment.git
+git `clone https://github.com/Subhojit1993/product-management`
 
 To get the output please run the below commands:
 
